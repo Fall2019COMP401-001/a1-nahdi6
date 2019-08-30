@@ -26,7 +26,7 @@ public class A1Novice {
 				total += price * quan; 
 				
 			}
-			System.out.print(fname.charAt(0) + ". "+ lname + ": " + total);
+			System.out.println(fname.charAt(0) + ". "+ lname + ": " + total);
 		}
 	}
 }
