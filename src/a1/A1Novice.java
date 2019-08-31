@@ -2,6 +2,7 @@ package a1;
 
 import java.util.Scanner;
 
+
 public class A1Novice {
 
 	public static void main(String[] args) {
@@ -25,8 +26,8 @@ public class A1Novice {
 				double price = scan.nextDouble();
 				total += price * quan; 
 			}
-			total = Math.round(total*100.0)/100.0;
-			System.out.println(fname.charAt(0) + ". "+ lname + ": " + total);
+			// total = Math.round(total*100.0)/100.0;
+			System.out.println(fname.charAt(0) + ". "+ lname + ": " + String.format( "%.2f", total ));
 		}
 	}
 }
