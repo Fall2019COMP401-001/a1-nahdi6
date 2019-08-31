@@ -19,14 +19,15 @@ public class A1Novice {
 			String lname = scan.next();
 			int items = scan.nextInt();
 			double total = 0;
+			double roundOff = 0;
 			for (int s = 0; s<items; s++) {
 				int quan = scan.nextInt();
-				String food = scan.next();
 				double price = scan.nextDouble();
 				total += price * quan; 
+				roundOff = Math.round(total*100)/100;
 				
 			}
-			System.out.println(fname.charAt(0) + ". "+ lname + ": " + total);
+			System.out.println(fname.charAt(0) + ". "+ lname + ": " + roundOff);
 		}
 	}
 }
