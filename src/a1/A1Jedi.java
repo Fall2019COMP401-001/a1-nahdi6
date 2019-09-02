@@ -21,8 +21,8 @@ public class A1Jedi {
 		String[] fname = new String[numCust];
 		String[] lname = new String[numCust];
 		double[] total = new double[numCust];
-		int g = 0;
-		int d = 0;
+		int[] count = new int[stor];
+		int[] quantity = new int[stor];
 		for (int s=0; s<numCust; s++) {
 			fname[s] = scan.next();
 			lname[s] = scan.next();
@@ -32,25 +32,38 @@ public class A1Jedi {
 			for (int m=0; m<numBought; m++) {
 				numCount[m] = scan.nextInt();
 				foodNames[m] = scan.next();
-			}
-			int[] finish = new int[0];
-			for (int f=0; f<numBought; f++) {
-				while (g<items.length) {
-					if (items[g] == foodNames[f]) {
-						finish[d] = finish[g] + numCount[f]; 
-						d++;
-					} else {
-						g++;
-					}
+				for (int t=0; t<stor; t++) {
+					quantity[t] += amount(items[t], numCount[m], foodNames[m]);
 				}
-			
 			}
-			
-			for (int h=0; h<items.length; h++) {
-				System.out.println("0 customers bought " + finish[h] + items[h]);
+			for (int f=0; f<items.length; f++) {
+				count[f] += isBought(items[f], foodNames);
 			}
 			
 		}
-		
+		for (int g=0; g<items.length; g++) {
+			if (count[g] == 0) {
+				System.out.println("No customers bought " + items[g]);
+			} else {
+				System.out.println(count[g] + " customers bought " + quantity[g] + " " + items[g]);
+			}
+		}
+	}
+
+	private static int isBought(String items, String[] foodNames) {
+		for (int i=0; i<foodNames.length; i++) {
+			if (items.equals(foodNames[i])) {
+				return 1;
+			}
+		}
+		return 0;
+	}
+
+	private static int amount(String items, int numCount, String foodNames) {
+		int total = 0;
+		if (items.contentEquals(foodNames)){
+			total = total + numCount;
+		}
+		return 0;
 	}
 }
