@@ -64,6 +64,6 @@ public class A1Jedi {
 		if (items.contentEquals(foodNames)){
 			total = total + numCount;
 		}
-		return 0;
+		return total;
 	}
 }
